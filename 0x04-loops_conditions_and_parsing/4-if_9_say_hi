@@ -1,11 +1,10 @@
 #!/usr/bin/env bash
-# Displays 'Best School' in stdout 10 times
+# Displays 'Best School' in stdout 10 times using the until loop
 
 i=0
-until ((i >= 10)); do
-  if ((i == 9)); then
-    echo "Hi"
-  fi
+
+until [ $i -eq 10 ]
+do
   echo "Best School"
   ((i++))
 done

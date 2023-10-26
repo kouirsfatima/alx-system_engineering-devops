@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # Displays numbers from 1 to 100 in list format.
+
 for num in {1..100}
 do
   if (( num % 3 == 0 && num % 5 == 0 ))
@@ -14,4 +15,4 @@ do
   else
     echo "$num"
   fi
-dones
+done

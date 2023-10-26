@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# Display information about the school school.
+
+school="school"
+
+if [ -e "$school" ]; then
+  echo "$school does not exist"
+
+elif [ -s "$school" ]; then
+  echo "$school is empty"
+else
+  echo "$school is not empty"
+fi
+
+if [ -f "$school" ]; then
+  echo "$school is a regular school"
+else
+  echo "$school does not exist"
+fi

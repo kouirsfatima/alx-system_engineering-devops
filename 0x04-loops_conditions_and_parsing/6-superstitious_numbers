@@ -1,0 +1,22 @@
+#!/bin/bash
+# Displays numbers from 1 to 20 with specific messages on certain iterations
+
+i=1
+
+while [ $i -le 20 ]; do
+  case $i in
+    4)
+      echo -e  "$i \nand bad luck from China"
+      ;;
+    9)
+      echo -e "$i \nand bad luck from Japan"
+      ;;
+    17)
+      echo -e "$i \nand bad luck from Italy"
+      ;;
+    *)
+      echo $i
+      ;;
+  esac
+  ((i++))
+done

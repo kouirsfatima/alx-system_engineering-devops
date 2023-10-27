@@ -9,5 +9,5 @@ do
     ((i++))
 
     sleep 2
-    echo "I am invincible!!!" SIGTERM 
+    trap 'echo "I am invincible!!!" SIGINT'
 done

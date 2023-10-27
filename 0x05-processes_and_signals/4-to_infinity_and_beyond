@@ -3,8 +3,10 @@
 # Write a Bash script that displays "To infinity and beyond" indefinitely.
 
 i=0
-while true; do
+while true
+do
     echo "To infinity and beyond"
     ((i++))
+
     sleep 2
 done

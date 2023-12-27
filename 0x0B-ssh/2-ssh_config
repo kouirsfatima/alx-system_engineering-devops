@@ -1,0 +1,4 @@
+# configure it to use the private key ~/.ssh/school
+Host *
+    PasswordAuthentication no
+    IdentityFile ~/.ssh/school

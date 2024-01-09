@@ -20,8 +20,8 @@ server {
     location = /404.html {
         internal;
     }
-       location / {
-      add_header X-Served-By "$(hostname)";
+    location / {
+    add_header X-Served-By "$(hostname)";
    }
 }
 EOF

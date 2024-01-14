@@ -4,8 +4,8 @@
 sudo apt-get update -y
 sudo apt-get install nginx -y
 
-sudo echo "Hello World!" | tee /var/www/html/index.html > /dev/null
-sudo echo "Ceci n'est pas une page" | tee /var/www/html/404.html > /dev/null
+echo "Hello World!" | sudo tee /var/www/html/index.html > /dev/null
+echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html > /dev/null
 
 ServerBlock="server {
     listen 80;
@@ -32,5 +32,5 @@ ServerBlock="server {
 }"
 
 
-sudo echo "$ServerBlock" | tee /etc/nginx/sites-available/default > /dev/null
+echo "$ServerBlock" |sudo  tee /etc/nginx/sites-available/default > /dev/null
 sudo service nginx restart

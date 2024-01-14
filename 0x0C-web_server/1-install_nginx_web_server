@@ -4,7 +4,7 @@
 sudo apt-get update -y
 sudo apt-get install nginx -y
 
-sudo echo "Hello World!" | tee /var/www/html/index.nginx-debian.html > /dev/null
+sudo echo "Hello World!" | tee /var/www/html/index.html > /dev/null
 sudo echo "Ceci n'est pas une page" | tee /var/www/html/404.html > /dev/null
 ServerBlock="server {
     listen 80;

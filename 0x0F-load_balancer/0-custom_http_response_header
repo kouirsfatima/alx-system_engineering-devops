@@ -1,29 +1,36 @@
 #!/usr/bin/env bash
-# Script thats install nginx web server
-apt-get -y update
-apt-get install -y nginx
-echo "Hello World!" | sudo tee /var/www/html/index.html
-echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html
-ufw allow 'Nginx HTTP'
-sudo tee /etc/nginx/sites-available/default > /dev/null <<EOF
-server {
-    listen 80 default_server;
+#Install nginx web server
+
+sudo apt-get update -y
+sudo apt-get install nginx -y
+
+sudo echo "Hello World!" | tee /var/www/html/index.html > /dev/null
+sudo echo "Ceci n'est pas une page" | tee /var/www/html/404.html > /dev/null
+
+ServerBlock="server {
+    listen 80;
     listen [::]:80 default_server;
 
     root /var/www/html;
-    index index.html;
+
+    server_name _;
+
+    location / {
+        try_files \$uri \$uri/ =404;
+    }
 
     location /redirect_me {
-        return 301 http://localhost/new_page;
+        return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
     }
+
     error_page 404 /404.html;
     location = /404.html {
         internal;
     }
-    location / {
-    add_header X-Served-By "$(hostname)";
-   }
-}
-EOF
 
+    add_header X-Served-By \$HOSTNAME;
+}"
+
+
+sudo echo "$ServerBlock" | tee /etc/nginx/sites-available/default > /dev/null
 sudo service nginx restart

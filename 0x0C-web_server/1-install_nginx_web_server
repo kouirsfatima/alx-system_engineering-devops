@@ -30,3 +30,4 @@ ServerBlock="server {
 }"
 
 sudo echo "$ServerBlock" | tee /etc/nginx/sites-available/default > /dev/null
+sudo service nginx restart
